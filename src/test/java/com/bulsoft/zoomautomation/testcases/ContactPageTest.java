@@ -6,6 +6,7 @@ import com.bulsoft.zoomautomation.pageobjects.ContactSalesResponsePage;
 import com.bulsoft.zoomautomation.pageobjects.MainNavigation;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
@@ -42,5 +43,10 @@ public class ContactPageTest {
                 .writeDescription("Please provide info")
                 .clickSubmitBtn();
         Assert.assertTrue(responsePage.getFormConfirmationMsg().getText().toUpperCase().contains("THANK"));
+    }
+
+    @AfterSuite
+    public void quit(){
+        driver.quit();
     }
 }
